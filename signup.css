@@ -1,0 +1,45 @@
+*{
+     box-sizing: border-box;
+     padding: 0px;     
+}
+
+.form{
+     border: 1px #198754 solid;
+     margin: 100px;
+     text-align: center;     
+}
+
+#submit{
+     display: block;
+     margin: 10px auto !important;
+}
+
+input{
+     border:  #198754 solid 1px;
+     outline: none;
+     -webkit-transition: 0.5s;
+     transition: 0.5s;
+     box-sizing: border-box;
+}
+
+#usn:focus{
+     border:  #E3DEAF solid 2px !important;
+     color:#198754;
+}
+
+.childform{
+     display: block;
+     margin-bottom: 10px;
+}
+
+h4, label, input, ::placeholder{
+     color:#969165;
+}
+
+#submit{
+     color: #969165;
+}
+
+#submit:hover{
+     color: #FBF2CF;
+}

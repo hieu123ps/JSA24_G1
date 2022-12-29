@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Banana Splits</title>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CSS bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Font Awesome icons (JS) -->
+    <script src="https://kit.fontawesome.com/e89b91a87c.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+    <style>   
+
+.section {
+  overflow-x: auto;
+  border-radius: 5px;
+  scroll-snap-type: x mandatory;
+  width: 50%;
+    scroll-snap-stop: always; 
+}
+.section__item {
+  scroll-snap-align: start;
+}
+.snowflake {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(white, white);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px white);
+}
+
+
+.santa {
+  background:#3ac6f4;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  position:relative;
+  top:50%;
+  left:25%;right:0;
+  bottom:0;
+
+}
+
+.santa .snow {
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 18px;
+  top: 44px;
+}
+
+
+.santa .snow:after {
+  width: 6px;
+  height: 6px;
+  content: "";
+  display: inline-block;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -14px;
+  left: 0px;
+}
+
+.santa .snow:before {
+  width: 4px;
+  height: 4px;
+  content: "";
+  display: inline-block;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -12px;
+  left: -11px;
+}
+
+.santa .hat {
+  width: 64px;
+  height: 31px;
+  border-radius: 200px 200px 0 0;
+  background: #ef4753;
+  margin: 0 auto;
+  top: -11px;
+  position: relative;
+  left: 5px;
+  z-index:20;
+}
+
+.santa .hat:after {
+  width: 60px;
+  height: 15px;
+  border-radius: 20px;
+  content: "";
+  display: block;
+  background: white;
+  position: relative;
+  top: 22px;
+  left: -3px;
+}
+
+.santa .face {
+  width: 54px;
+  height: 57px;
+  background: white;
+  border-radius: 0px 0px 50px 50px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 20;
+  top: -6px;
+}
+
+.santa .face .eyes {
+  background:#f1ddd5;
+  width:45px;
+  height:15px;
+  margin:0 auto;
+  position:relative;
+  left:-1px;
+  text-align: center;
+  top:4px;
+  padding-top: 0px;
+}
+
+.santa .face .eyes:after, righteye {
+  width: 8px;
+  height: 6px;
+  background: transparent;
+  box-shadow: 0px -2px #793623;
+  content: "";
+  display:inline-block;
+  margin:0 auto;
+  border-radius: 50%;
+}
+
+.santa .face .eyes:before, lefteye {
+  width: 8px;
+  height: 6px;
+  background: transparent;
+  box-shadow: 0px -2px #793623;
+  content: "";
+  display:inline-block;
+  margin:0 auto;
+  border-radius: 50%;
+  margin-right:5px;
+}
+
+.santa .mouth {
+  background:#a31f2b;
+  border-radius:50%;
+  width:6px;
+  height:6px;
+  position:absolute;
+  bottom:20px;
+  right:17px;
+}
+
+.santa .body {
+  width: 93px;
+  height: 84px;
+  background: #ef4753;
+  border-radius: 90px 90px 0px 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  text-align:center;
+  z-index:10;
+}
+
+.santa .body:after {
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 68px;
+  z-index: 50;
+  content: "";
+  left: 0;
+  right: 0;
+
+}
+
+.santa .body:before {
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 55px;
+  z-index: 50;
+  content: "";
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.santa .hat .hat-end {
+  width: 13px;
+  height: 32px;
+  content: "";
+  background: #ef4753;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  border-radius: 0px 11px 0px 0px;
+}
+
+.santa .hat .hat-end:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+  content: "";
+  display: inline-block;
+  top: 30px;
+  position: absolute;
+  left: 0px;
+  z-index: 11;
+}
+
+.circles {
+  background: #a31f2b;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  z-index: 9;
+  position: absolute;
+  right: -6px;
+  top: 12px;
+}
+
+.circles:after {
+  background:white;
+  width:40px;
+  height:40px;
+  right:0;
+  top:50px;
+  content:"";
+  border-radius:50%;
+}
+
+.dirty-overflow {
+  overflow: hidden;
+  width: 120px;
+  height: 76px;
+  border-radius: 0px 0px 105px 105px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.hh > .form-control:hover{          transform: scale(0.97);
+            transition: 0.5s;}
+
+*{box-sizing: border-box; margin: 0; padding: 0;}
+</style>
+</head>
+<body onload="loadAcc()">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <div id='menu'></div>
+               <button id='menuL' class="btn dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">Login/Sign</button>
+            <ul class="dropdown-menu py-2 px-3" id='blockTab'>
+              <li>
+                <label>Username:</label>
+                <input class="form-control" id="usnL" type="text" name="" placeholder="Username">
+                </li>
+              <li>
+                <label>Password:</label>
+                <input class="form-control" id="pwL" type="password" name="" placeholder="Password">
+            </li>
+            <li>
+                <button type="button" id="submitLogin" class="btn btn-primary text-center my-2">Login</button>
+                <a class="mx-2" href="signup.html">Create account</a>
+            </li>
+              
+            </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Srories and Movies</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Story</a></li>
+              <li><a class="dropdown-item" href="#">Movie</a></li>
+              
+            </ul>
+          </li>
+        </ul>
+        <form role="search" class="d-flex">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary mx-2">Search</button>
+        </form>
+ 
+      </div>
+    </div>
+  </nav>
+
+<div id="snow"></div>
+<input type="checkbox" hidden id="toggle_snow" checked="true" onclick="toggle_snow()">
+     <div class="content mx-2">
+        <center>
+        <div class="d-flex align-items-center position-relative my-5">   
+            <div class="santa">
+                <div class="circles"></div>
+              <div class="snow"></div>
+              <div class="hat">
+                <div class="hat-end"></div>
+              </div>
+                <div class="face">
+                  <div class="eyes"></div>
+                  <div class="mouth"></div>
+                  </div>
+                  <div class="dirty-overflow">
+                  <div class="body"></div>
+                </div>
+            </div>
+            <h1 class="mx-5 position-absolute" style="left: 33%;">Bedtime stories for Christmas:</h1>
+        </div>
+        </center>
+        <center>
+            <section class="col-10">
+        <div class="d-flex my-2 hh">
+            <div class="form-control mx-2">
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="gift" class="fa-solid fa-gift fa-6x"></i>
+                  </div>
+                </div>
+                <a href="gift_7.html"><button class="btn btn-primary my-sm-2">Christmas D-7</button></a>
+            </div>
+            <div class="form-control mx-2">
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="gift" class="fa-solid fa-gift fa-6x"></i>
+                  </div>
+                </div>
+                <a href="gift_6.html"><button class="btn btn-primary my-sm-2">Christmas D-6</button></a>
+            </div>
+            <div class="form-control mx-2">
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="snowman" class="fa-solid fa-snowman fa-6x"></i>
+                  </div>
+                </div>
+               <a href="gift_5.html"><button class="btn btn-primary my-sm-2">Christmas D-5</button></a> 
+            </div>
+            <div class="form-control mx-2"> 
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="sleigh" class="fa-solid fa-sleigh fa-6x"></i>
+                  </div>
+                </div>
+               <a href="gift_4.html"><button class="btn btn-primary my-sm-2">Christmas D-4</button></a> 
+            </div>
+        </div>
+        <div class="d-flex my-2 hh">
+            <div class="form-control mx-2"> 
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="socks" class="fa-solid fa-socks fa-6x"></i>
+                  </div>
+                </div>
+                <a href="gift_3.html"><button class="btn btn-primary my-sm-2">Christmas D-3</button></a>
+                
+            </div>
+            <div class=" form-control mx-2"> 
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="bell" class="fa-solid fa-bell fa-6x"></i>
+                  </div>
+                </div>
+                <a href="gift_2.html"><button class="btn btn-primary my-sm-2">Christmas D-2</button></a>               
+            </div>
+            <div class="form-control mx-2">
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="candy-cane" class="fa-solid fa-candy-cane fa-6x"></i>
+                  </div>
+                </div>
+                <a href="gift_1.html"><button class="btn btn-primary my-sm-2">Christmas D-1</button></a>                
+                
+            </div>
+            <div class=" form-control mx-2"> 
+                <div class="card">
+                  <div class="card-body">
+                    <p>This is some text within a card body.</p>
+                        <i id="christmas-tree" class="fa-solid fa-tree fa-6x"></i>
+                  </div>
+                </div>
+               <a href="icon.html"><button class="btn btn-primary my-sm-2">Christmas Day</button></a> 
+            </div>
+        </div>
+    </section>
+        </center>
+     </div>
+     <footer>
+          <div class="footer d-flex justify-content-around pt-3">
+               <div>
+                    <h5>Liên hệ chúng tôi tại:</h5>
+                    <p><i class="fa fa-envelope mx-2" aria-hidden="true"></i>Gmail<br>  
+                    <p><i class="fa fa-facebook-square mx-2" aria-hidden="true"></i>Facebook
+                    </p>
+                    <p><i class="fa fa-youtube-play mx-2" aria-hidden="true"></i>Youtube</p>
+                         
+                                        
+               </div>
+               <div>
+                    <h5>Website được quản trị bởi:</h5>
+                    <ol>
+                         <li>Minh Trang </li>
+                         <li>Chi Ngọc</li>
+                         <li>Việt Khoa</li>
+                    </ol>                
+               </div>
+          </div>
+          <div class="footer-line"></div>
+     </footer>
+     <script>
+          $('#dropdownId').click(()=> {
+               $('.dropdown-menu').fadeToggle('slow');
+          });
+
+    </script>
+        <script type="text/javascript" src="animated-snowfall-effect/PureSnow.js"></script>
+        <script type="text/javascript" src="signup.js"></script>
+
+</body>
+</html>

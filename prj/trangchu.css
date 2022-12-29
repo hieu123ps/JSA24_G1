@@ -1,0 +1,95 @@
+style.css
+*{
+     box-sizing: border-box;
+     padding: 0px;
+}
+
+body{
+     background-color: #FBF2CF !important;
+}
+
+.navbar{
+     background-color: #E3DEAF;
+}
+
+.navbar-brand, #logo{
+     width: 50px;
+     height: 50px;
+}
+
+.navbar-brand{
+     margin: 10px 30px;
+}
+
+.nav-link{
+     color: #91A395 !important;
+}
+
+footer{
+     background-color: #E3DEAF; 
+     margin-top: 150px;
+     color: #91A395;
+}
+
+.ft{
+     margin: 180px 50px 0px 50px;
+     padding: 20px 0;
+}
+
+#reg:hover{
+     cursor: default;
+}
+
+#reg{
+     margin-left: 500px;    
+}
+
+.slash{
+     border-top: 2px solid #91A395;
+     width:50px;
+     transform: rotate(-70deg); 
+}
+
+.flex{
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     
+}
+
+.fa-solid{
+     color:#969165;
+}
+
+.content{
+     text-align: center;
+     margin-top: 100px;
+}
+
+.rdr{
+     display: inline-block;
+     text-decoration: none;
+     color: #969165;
+}
+
+.regBtn > a{
+     text-decoration: none;
+     color: #FBF2CF ;
+}
+
+#login:hover, #signup:hover{
+     color: #91A395;
+}
+
+.btn{
+     color: #FBF2CF !important;
+}
+
+h1{
+     color: #969165;
+}
+
+
+/* .regBtn:hover > a{
+     color: #91a395 ;
+} */
